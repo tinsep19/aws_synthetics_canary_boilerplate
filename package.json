@@ -12,8 +12,10 @@
     "archiver": "^5.3.0",
     "install-local": "^3.0.1",
     "puppeteer": "^5.5.0",
-    "rimraf": "^3.0.2",
-    "Synthetics": "file:modules/Synthetics",
-    "SyntheticsLogger": "file:modules/SyntheticsLogger"
-  }
+    "rimraf": "^3.0.2"
+  },
+  "workspaces" : [
+    "canaries/*", 
+    "modules/*"
+  ]
 }
