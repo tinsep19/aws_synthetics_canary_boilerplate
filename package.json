@@ -1,0 +1,19 @@
+{
+  "name": "aws_synthetics_canary_boilerplate",
+  "version": "0.0.1",
+  "description": "AWS Cloudwatch Synthetics boilerplate. Target runtime is around syn-nodejs-puppeteer-3.4.",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC",
+  "scripts": {
+    "clean" : "rimraf build"
+  },
+  "devDependencies": {
+    "archiver": "^5.3.0",
+    "install-local": "^3.0.1",
+    "puppeteer": "^5.5.0",
+    "rimraf": "^3.0.2",
+    "Synthetics": "file:modules/Synthetics",
+    "SyntheticsLogger": "file:modules/SyntheticsLogger"
+  }
+}
