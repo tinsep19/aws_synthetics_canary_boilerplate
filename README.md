@@ -12,6 +12,7 @@ npm install
 ```
 
 Copy this repository.
+
 `npm install` will install puppeteer for locally use.
 
 ## Create your canary
@@ -22,6 +23,7 @@ npm install
 ```
 
 Allocate one workspace to each canary script.
+
 If you need an `<EXTERNAL-MODULE>` for `<YOUR-CANARY>`, you can add a dependency by following the steps below.
 
 `npm install <EXTERNAL-MODULE> -w canaries/<YOUR-CANARY>`
@@ -34,7 +36,8 @@ Write your canary code in `canaries/<YOUR-CANARY>/index.js`
 
 I have mocked the Synthetics/SyntheticsLogger locally (around syn-nodejs-puppeteer-3.4),
 which allows us to write and execute synthetic checks before deploying them.
-To run a test locally:
+
+To run a test locally,
 
 `node scripts/main.js <YOUR-CANARY>`
 
