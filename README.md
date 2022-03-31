@@ -23,6 +23,7 @@ npm install
 ```
 
 Allocate one workspace to each canary script.
+Write your canary code in `canaries/<YOUR-CANARY>/index.js`
 
 If you need an `<EXTERNAL-MODULE>` for `<YOUR-CANARY>`, you can add a dependency by following the steps below.
 
@@ -30,7 +31,6 @@ If you need an `<EXTERNAL-MODULE>` for `<YOUR-CANARY>`, you can add a dependency
 
 See. [Adding dependencies to a workspace](https://docs.npmjs.com/cli/v7/using-npm/workspaces#adding-dependencies-to-a-workspace)
 
-Write your canary code in `canaries/<YOUR-CANARY>/index.js`
 
 ## Test locally
 
