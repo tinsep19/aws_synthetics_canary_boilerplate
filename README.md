@@ -2,7 +2,7 @@
 
 This is a boilerplate to get started using AWS CloudWatch synthetics canary.
 
-## Create your canary
+## Set Up
 
 ```shell
 git clone https://github.com/tinsep19/aws_synthetics_canary_boilerplate.git
@@ -10,7 +10,15 @@ git remote remove origin
 npm install
 ```
 
-`npm init -w canaries/<YOUR-CANARY>`
+Copy this repository.
+`npm install` will install puppeteer for locally use.
+
+## Create your canary
+
+```shell
+npm init -y -w canaries/<YOUR-CANARY>
+npm install
+```
 
 Allocate one workspace to each canary script.
 If you need an `<EXTERNAL-MODULE>` for `<YOUR-CANARY>`, you can add a dependency by following the steps below.
@@ -19,17 +27,25 @@ If you need an `<EXTERNAL-MODULE>` for `<YOUR-CANARY>`, you can add a dependency
 
 See. [Adding dependencies to a workspace](https://docs.npmjs.com/cli/v7/using-npm/workspaces#adding-dependencies-to-a-workspace)
 
+Write your canary code in `canaries/<YOUR-CANARY>/index.js`
+
+## Test locally
+
 I have mocked the Synthetics/SyntheticsLogger locally (around syn-nodejs-puppeteer-3.4),
 which allows us to write and execute synthetic checks before deploying them.
 To run a test locally:
 
 `node scripts/main.js <YOUR-CANARY>`
 
-We can create a zip archive containing the dependencies.
+## Create zip
+
+For each canary, we can create a zip archive containing the dependencies.
 
 `node scripts/build_zip.js <YOUR-CANARY>`
 
 Using [install-local](https://www.npmjs.com/package/install-local), install `<YOUR-CANARY>` in `build/<YOUR-CANARY>/nodejs/node_modules` with dependencies.
+
+It will be archived on `build/<YOUR-CANARY>.zip`
 
 ## How do I keep up with runtime updates?
 
