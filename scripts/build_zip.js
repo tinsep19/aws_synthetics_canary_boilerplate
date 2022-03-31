@@ -3,10 +3,11 @@ const path = require('path');
 const archiver = require('archiver');
 const { progress, LocalInstaller } = require('install-local');
 
-const checkCanaryModule = (canary) => {
-  const canaryModulePath = `canaries/${canary}`;
-  return fs.promises.lstat(canaryModulePath)
-    .then(stat => stat.isDirectory())
+// return JSON from package.json
+const loadCanaryModule = (canary) => {
+  const canaryPackageJson = `canaries/${canary}/package.json`;
+  return fs.promises.readFile(canaryPackageJson, 'utf8')
+    .then(content => JSON.parse(content))
     .catch(() => false);
 };
 
@@ -40,9 +41,10 @@ const installCanaryAndDependencies = (canary) => {
     .then(installCanary);
 };
 
-const archiveCanaryCode = (canary) => {
+// Promise<String> : archive file path 
+const archiveCanaryCode = (canary, version) => {
   const sourceDir = `build/${canary}`;
-  const archiveZip = `build/${canary}.zip`;
+  const archiveZip = `build/${canary}-${version}.zip`;
 
   const zipDirectory = (source, out) => {
     const archive = archiver('zip', { zlib: { level: 9 }});
@@ -67,16 +69,16 @@ const archiveCanaryCode = (canary) => {
     return;
   }
   const canary = process.argv[2];
-  const existCanary = await checkCanaryModule(canary);
-  if (!existCanary) {
+  const canaryPackageJson = await loadCanaryModule(canary);
+  if (!canaryPackageJson) {
     console.log(`canaries/${canary} is not exists.`);
     process.exit(1);
   }
-
+  const version = canaryPackageJson.version;
   await installCanaryAndDependencies(canary)
     .catch(e => console.error(e));
 
-  await archiveCanaryCode(canary)
+  await archiveCanaryCode(canary, version)
     .then(zipPath => console.info(`output zip : ${zipPath}`))
     .catch(e => console.error(e));
 

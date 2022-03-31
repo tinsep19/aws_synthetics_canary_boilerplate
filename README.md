@@ -46,7 +46,7 @@ For each canary, we can create a zip archive containing the dependencies.
 
 Using [install-local](https://www.npmjs.com/package/install-local), install `<YOUR-CANARY>` in `build/<YOUR-CANARY>/nodejs/node_modules` with dependencies.
 
-It will be archived on `build/<YOUR-CANARY>.zip`
+It will be archived on `build/<YOUR-CANARY>-<YOUR-CANARY-VERSION>.zip`
 
 ## How do I keep up with runtime updates?
 
