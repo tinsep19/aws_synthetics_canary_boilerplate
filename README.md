@@ -41,6 +41,15 @@ To run a test locally,
 
 `node scripts/main.js <YOUR-CANARY>`
 
+If you will use ENVIRONMENT_VARIABLES, write env and run it as follows,
+
+`node -r dotenv/config scripts/main.js <YOUR-CANARY> dotenv_config_path=env/<YOUR-CANARY>.env`
+
+```.env
+ENV_NAME_A=ENV_VALUE_A
+ENV_NAME_A=ENV_VALUE_B
+```
+
 ## Create zip
 
 For each canary, we can create a zip archive containing the dependencies.
