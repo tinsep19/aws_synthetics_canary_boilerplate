@@ -53,6 +53,16 @@ It will be archived on `build/<YOUR-CANARY>-<YOUR-CANARY-VERSION>.zip`
 
 ## How do I keep up with runtime updates?
 
+For now, I'm implementing the API I used.
+Please fork or contributes.
+
+- modules/Synthetics/index.js
+- modules/SyntheticsLogger/index.js
+
+or add new module
+
+`npm init -w modules/<SYNTHETICS-MODULE>`
+
 To follow puppeteer updates, edit package.json and `npm install`
 
 ```package.json
@@ -64,11 +74,3 @@ To follow puppeteer updates, edit package.json and `npm install`
   },
 ```
 
-To follow syn-nodejs-puppeteer lib updates, please fork or contributes.
-
-- modules/Synthetics/index.js
-- modules/SyntheticsLogger/index.js
-
-or add new module
-
-`npm init -w modules/<SYNTHETICS-MODULE>`
