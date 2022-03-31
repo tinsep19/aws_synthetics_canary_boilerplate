@@ -5,7 +5,8 @@ This is a boilerplate to get started using AWS CloudWatch synthetics canary.
 ## Set Up
 
 ```shell
-git clone https://github.com/tinsep19/aws_synthetics_canary_boilerplate.git
+git clone https://github.com/tinsep19/aws_synthetics_canary_boilerplate.git <YOUR-REPO>
+cd <YOUR-REPO>
 git remote remove origin
 npm install
 ```
@@ -60,7 +61,7 @@ To follow puppeteer updates, edit package.json and `npm install`
   },
 ```
 
-To follow syn-nodejs-puppeteer updates, please fork or contributes.
+To follow syn-nodejs-puppeteer lib updates, please fork or contributes.
 
 - modules/Synthetics/index.js
 - modules/SyntheticsLogger/index.js
