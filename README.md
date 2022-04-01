@@ -2,7 +2,14 @@
 
 This is a boilerplate to get started using AWS CloudWatch synthetics canary.
 
+## Motivation
+
+- Test code locally using syn-nodejs-puppeteer.
+- Make it Easily to write canary code with some dependencies and archive them.
+
 ## Set Up
+
+Copy this repository and `npm install`.
 
 ```shell
 git clone https://github.com/tinsep19/aws_synthetics_canary_boilerplate.git <YOUR-REPO>
@@ -10,10 +17,6 @@ cd <YOUR-REPO>
 git remote remove origin
 npm install
 ```
-
-Copy this repository.
-
-`npm install` will install puppeteer for locally use.
 
 ## Create your canary
 
@@ -83,3 +86,48 @@ To follow puppeteer updates, edit package.json and `npm install`
   },
 ```
 
+### Questions
+
+- What should I specify for `Handler`?
+
+specify `<YOUR-CANARY>.handler`.
+
+- The file name of canary code is index.js. Why does this work?
+
+Yes, this works.
+
+Lambda code will execute `require('/nodejs/node_modules/<YOUR-CANARY>').handler();`.
+The canary has a package.json their `main` is `index.js`.
+So the above code will execute `index.js`.
+
+- How do we deploy?
+
+In this version, boilerplate has no deployment method.
+Create a Stack that contains the following fragments.
+
+Cfn: You need to upload the zip file to S3 before deploying
+
+```yaml
+Type: AWS::Synthetics::Canary
+Properties: 
+  Name: <YOUR-CANARY>
+  RuntimeVersion: syn-nodejs-puppeteer-3.5
+  Code: 
+    Handler: "<YOUR-CANARY>.handler"
+    S3Bucket: "<S3-CODE-BUCKET>"
+    S3Key: "/<YOUR-CANARY>-<YOUR-CANARY-VERSION>.zip"
+  # other properties.
+```
+
+CDK:
+
+```ts
+const canary = new synthetics.Canary(this, 'MyCanary', {
+  test: synthetics.Test.custom({
+    code: synthetics.Code.fromAsset(path.join(__dirname, 'build/<YOUR-CANARY>-<YOUR-CANARY-VERSION>.zip')),
+    handler: '<YOUR-CANARY>.handler',
+  }),
+  runtime: synthetics.Runtime.SYNTHETICS_NODEJS_PUPPETEER_3_5,
+  // other properties
+});
+```
