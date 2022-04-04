@@ -1,0 +1,21 @@
+{
+  "name": "SyntheticsLogHelper",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tinsep19/aws_synthetics_canary_boilerplate.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tinsep19/aws_synthetics_canary_boilerplate/issues"
+  },
+  "homepage": "https://github.com/tinsep19/aws_synthetics_canary_boilerplate#readme"
+}
