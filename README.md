@@ -34,7 +34,6 @@ If you need an `<EXTERNAL-MODULE>` for `<YOUR-CANARY>`, you can add a dependency
 
 See. [Adding dependencies to a workspace](https://docs.npmjs.com/cli/v7/using-npm/workspaces#adding-dependencies-to-a-workspace)
 
-
 ## Test locally
 
 I have mocked the Synthetics/SyntheticsLogger locally (around syn-nodejs-puppeteer-3.4),
@@ -74,6 +73,9 @@ Please fork or contributes.
 or add new module
 
 `npm init -w modules/<SYNTHETICS-MODULE>`
+
+You will specify `<SYNTHETICS-MODULE>` in PascalCase. However, it will be lowercase in package.json.
+Change the name in package.json to PascalCase, then run `npm install`.
 
 To follow puppeteer updates, edit package.json and `npm install`
 
