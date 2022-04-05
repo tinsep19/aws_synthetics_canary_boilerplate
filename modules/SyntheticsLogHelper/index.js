@@ -1,4 +1,4 @@
-const SyntheticsLogHelper = class {
+class SyntheticsLogHelper {
   getSanitizedUrl(url, stepConfig = {}) {
     return url;
   }
