@@ -117,7 +117,7 @@ Properties:
   Code: 
     Handler: "<YOUR-CANARY>.handler"
     S3Bucket: "<S3-CODE-BUCKET>"
-    S3Key: "/<YOUR-CANARY>-<YOUR-CANARY-VERSION>.zip"
+    S3Key: "<YOUR-CANARY>-<YOUR-CANARY-VERSION>.zip"
   # other properties.
 ```
 
