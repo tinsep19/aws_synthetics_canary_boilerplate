@@ -9,11 +9,15 @@ This is a boilerplate to get started using AWS CloudWatch synthetics canary.
 
 ## Set Up
 
-Copy this repository and `npm install`.
+1. Copy this repository
+2. install target node and latest npm. # node v14 use npm@6 as default. but it does not support workspace feature 
+3. npm install
 
 ```shell
 git clone https://github.com/tinsep19/aws_synthetics_canary_boilerplate.git <YOUR-REPO>
 cd <YOUR-REPO>
+nvm install
+nvm install-latest-npm
 git remote remove origin
 npm install
 ```
